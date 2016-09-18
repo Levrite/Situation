@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Данетки</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="offline_mode">Офлайн режим</string>
+    <string name="online_mode">Онлайн режим</string>
+    <string name="send_situation">Отправить данетку</string>
+    <string name="rules">Правила</string>
+    <string name="about">О программе</string>
+</resources>

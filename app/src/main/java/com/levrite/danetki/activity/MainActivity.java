@@ -18,6 +18,7 @@ import android.view.View;
 import com.levrite.danetki.R;
 import com.levrite.danetki.fragment.CategoryListFragment;
 import com.levrite.danetki.fragment.OnlineFragment;
+import com.levrite.danetki.fragment.RulesFragment;
 import com.levrite.danetki.fragment.SendSituationFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new SendSituationFragment();
                 break;
             case R.id.nav_rules:
-
+                fragment = new RulesFragment();
                 break;
             default:
                 fragment = new CategoryListFragment();

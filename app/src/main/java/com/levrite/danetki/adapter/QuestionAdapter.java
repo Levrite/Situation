@@ -50,10 +50,15 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
         if (questionList.get(position).getDone().equals("1")) {
             holder.checkGuess.setChecked(true);
             holder.textArticle.setTextColor(mContext.getResources().getColor(R.color.colorCheck));
+        }else{
+            holder.checkGuess.setChecked(false);
+            holder.textArticle.setTextColor(mContext.getResources().getColor(R.color.colorListGrey));
         }
 
         if(questionList.get(position).getFavorite().equals("1")){
             holder.checkFavorite.setChecked(true);
+        }else{
+            holder.checkFavorite.setChecked(false);
         }
 
         holder.cardQuestion.setOnClickListener(new View.OnClickListener() {

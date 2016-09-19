@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
 
@@ -13,11 +15,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="3dp"
+            card_view:cardCornerRadius="3dp"
+            card_view:cardUseCompatPadding="true"
+            >
+
         <EditText
             android:id="@+id/etArticle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Название" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="3dp"
+            card_view:cardCornerRadius="3dp"
+            card_view:cardUseCompatPadding="true"
+            >
 
         <EditText
             android:id="@+id/etQuestion"
@@ -26,12 +46,25 @@
             android:layout_marginTop="50dp"
             android:hint="Вопрос" />
 
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="3dp"
+            card_view:cardCornerRadius="3dp"
+            card_view:cardUseCompatPadding="true"
+            >
+
         <EditText
             android:id="@+id/etAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:hint="Ответ" />
+
+        </android.support.v7.widget.CardView>
+
     </LinearLayout>
 
     <LinearLayout

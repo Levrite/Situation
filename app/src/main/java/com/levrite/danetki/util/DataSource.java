@@ -105,6 +105,24 @@ public class DataSource {
         return questionList;
     }
 
+    public int getCount(String id){
+        int count = 0;
+        Cursor cursor;
+        if(id.equals("3")){
+            cursor = mDataBase.query("danetki", null, "favorit == 1", null,null,null,null);
+        }else{
+           cursor = mDataBase.query("danetki", null, "category == " + id, null,null,null,null);
+        }
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            count++;
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        return count;
+    }
+
     public void writeDone(ContentValues contentValues, String id){
         mDataBase.update("danetki", contentValues, "_id = ?", new String[]{id});
     }

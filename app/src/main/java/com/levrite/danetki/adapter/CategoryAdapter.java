@@ -17,18 +17,21 @@ import com.levrite.danetki.R;
 import com.levrite.danetki.activity.MainActivity;
 import com.levrite.danetki.fragment.QuestionListFragment;
 import com.levrite.danetki.model.Category;
+import com.levrite.danetki.util.DataSource;
 
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
 
-    List<Category> categoryList;
-    Context mContext;
+    private List<Category> categoryList;
+    private Context mContext;
+    private DataSource mDataSource;
 
     public CategoryAdapter(List<Category> categoryList, Context context) {
         this.categoryList = categoryList;
         this.mContext = context;
+        mDataSource = new DataSource(mContext);
     }
 
     @Override
@@ -55,7 +58,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         int idImage = mContext.getResources().getIdentifier(category.getImage(), "drawable", mContext.getPackageName());
 
         holder.titleText.setText(category.getName());
-        holder.countText.setText(category.getId() + "");
+        mDataSource.open();
+        holder.countText.setText("Данеток в категории: " + mDataSource.getCount(category.getId()+""));
+        mDataSource.close();
         holder.imageView.setImageResource(idImage);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {

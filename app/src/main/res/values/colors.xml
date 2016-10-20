@@ -11,5 +11,11 @@
     <color name="colorCheck">#4CAF50</color>
     <color name="colorFavorite">#b84141</color>
     <color name="colorListGrey">#757575</color>
+    <color name="registationButtonColor">#FFFFFF</color>
+    <color name="blueBackground">#45a3d1</color>
+    <color name="dmatter">#607D8B</color>
+    <color name="yes">#4CAF50</color>
+    <color name="no">#F44336</color>
+    <color name="correct">#388E3C</color>
 
 </resources>

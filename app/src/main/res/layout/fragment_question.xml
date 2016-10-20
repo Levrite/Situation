@@ -45,17 +45,30 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="10dp">
+        >
 
-        <TextView
-            android:id="@+id/textQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Question/Answer"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="18sp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:id="@+id/textQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Question/Answer"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 
@@ -90,7 +103,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/check"
             android:layout_margin="10dp"
-android:button="@drawable/custom_check_guess_36dp"            />
+            android:button="@drawable/custom_check_guess_36dp"/>
 
     </LinearLayout>
 

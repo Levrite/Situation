@@ -14,7 +14,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static String DB_PATH = "/data/data/com.levrite.danetki/databases/";
 
-    private static String DB_NAME = "danetki.db";
+    private static String DB_NAME = "danetki1.db";
 
     private SQLiteDatabase mDataBase;
     private static DataBaseHelper sDataBaseInstance;

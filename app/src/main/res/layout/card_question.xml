@@ -9,28 +9,30 @@
         android:id="@+id/cardQuestion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:elevation="3dp"
-        card_view:cardCornerRadius="3dp"
-        card_view:cardUseCompatPadding="true">
-
+        card_view:cardCornerRadius="0dp"
+        android:layout_marginBottom="1dp"
+        >
 
         <RelativeLayout
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/textQuestionArticle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxEms="14"
+                android:lines="1"
                 android:padding="15dp"
                 android:text="Article"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:ellipsize="end"
+                />
 
             <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/checkGuess"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -41,12 +43,11 @@
 
             <CheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/checkFavorite"
                 android:button="@drawable/custom_check_favorite"
                 android:layout_marginRight="12dp"
                 android:layout_marginEnd="12dp"
-                android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/checkGuess"
                 android:layout_toStartOf="@+id/checkGuess" />
 

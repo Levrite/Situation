@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -39,7 +39,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
 
     @Override
     public QuestionHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(parent.getContext(), R.layout.question_card, null);
+        View view = View.inflate(parent.getContext(), R.layout.card_question, null);
         QuestionHolder questionHolder = new QuestionHolder(view);
         return questionHolder;
     }
@@ -95,7 +95,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
                     contentValues.put("favorit", "1");
                     mDataSource.writeFavorite(contentValues, questionList.get(position).getId() + "");
                     questionList.get(position).setFavorite("1");
-                    Toast.makeText(mContext, "Добавлено в избранное", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Добавлено в избранное", Toast.LENGTH_SHORT).show();
                 } else {
                     contentValues.put("favorit", "0");
                     mDataSource.writeFavorite(contentValues, questionList.get(position).getId() + "");
@@ -114,7 +114,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
                     contentValues.put("done", "1");
                     mDataSource.writeDone(contentValues, questionList.get(position).getId() + "");
                     questionList.get(position).setDone("1");
-                    Toast.makeText(mContext, "Отгадано", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Отгадано", Toast.LENGTH_SHORT).show();
                     holder.textArticle.setTextColor(mContext.getResources().getColor(R.color.colorCheck));
 
                 } else {

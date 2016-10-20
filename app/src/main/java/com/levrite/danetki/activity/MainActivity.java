@@ -14,19 +14,31 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.levrite.danetki.R;
 import com.levrite.danetki.fragment.CategoryListFragment;
-import com.levrite.danetki.fragment.OnlineFragment;
+import com.levrite.danetki.fragment.LogInFragment;
+import com.levrite.danetki.fragment.NewQuestionFragment;
 import com.levrite.danetki.fragment.RulesFragment;
-import com.levrite.danetki.fragment.SendSituationFragment;
+import com.levrite.danetki.model.User;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
     private NavigationView mNavigationView;
     private ActionBarDrawerToggle mDrawerToggle;
+    private TextView mTextNavUsername;
+    private TextView mTextNavEmail;
+    private DatabaseReference mDatabaseUserReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +49,43 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mNavigationView = (NavigationView) findViewById(R.id.nvView);
 
+        View v = mNavigationView.getHeaderView(0);
+        mTextNavEmail = (TextView) v.findViewById(R.id.text_nav_email);
+        mTextNavUsername = (TextView) v.findViewById(R.id.text_nav_username);
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+
+            mDatabaseUserReference = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            mDatabaseUserReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    User user = dataSnapshot.getValue(User.class);
+                    mTextNavUsername.setText(user.username);
+                    mTextNavEmail.setText(user.email);
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        }else{
+            mTextNavEmail.setText("Добро пожаловать");
+            mTextNavUsername.setText("Гость");
+        }
+
+        mToolbar.setTitle(R.string.offline_mode);
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
 
-        mToolbar.setTitle(R.string.offline_mode);
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, new CategoryListFragment())
                 .commit();
-
-
 
         setupDrawerContent(mNavigationView);
     }
@@ -96,10 +132,13 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new CategoryListFragment();
                 break;
             case R.id.nav_online:
-                fragment = new OnlineFragment();
+                fragment = new LogInFragment();
                 break;
             case R.id.nav_send_situation:
-                fragment = new SendSituationFragment();
+                fragment = new NewQuestionFragment();
+                break;
+            case R.id.nav_log_out:
+                FirebaseAuth.getInstance().signOut();
                 break;
             case R.id.nav_rules:
                 fragment = new RulesFragment();
@@ -107,14 +146,16 @@ public class MainActivity extends AppCompatActivity {
             default:
                 fragment = new CategoryListFragment();
         }
+        if(fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            menuItem.setChecked(true);
+            mToolbar.setTitle(menuItem.getTitle());
+        }
+            mDrawerLayout.closeDrawers();
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit();
-        menuItem.setChecked(true);
-        mToolbar.setTitle(menuItem.getTitle());
-        mDrawerLayout.closeDrawers();
     }
 
     @Override
@@ -126,4 +167,5 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 }

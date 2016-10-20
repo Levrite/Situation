@@ -5,12 +5,12 @@ package com.levrite.danetki.model;
  */
 public class Question {
 
-    private String article;
-    private String question;
-    private String answer;
-    private int id;
-    private String done;
-    private String favorite;
+    String article;
+    String question;
+    String answer;
+    int id;
+    String done;
+    String favorite;
 
     public String getFavorite() {
         return favorite;

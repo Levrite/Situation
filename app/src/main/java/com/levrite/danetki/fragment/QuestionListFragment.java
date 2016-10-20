@@ -47,6 +47,7 @@ public class QuestionListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.recycleQuestion);
+        recyclerView.setHasFixedSize(true);
         mDataSource = new DataSource(getActivity());
         mDataSource.open();
         if(getArguments().getString("idCategory").equals("3")){
@@ -60,16 +61,8 @@ public class QuestionListFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(questionAdapter);
 
+
         mDataSource.close();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                getActivity().onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

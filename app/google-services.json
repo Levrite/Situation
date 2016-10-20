@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "992397507510",
+    "firebase_url": "https://danetki-b3597.firebaseio.com",
+    "project_id": "danetki-b3597",
+    "storage_bucket": "danetki-b3597.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992397507510:android:c4537ccfb9327dec",
+        "android_client_info": {
+          "package_name": "com.levrite.danetki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992397507510-j163vknmvfvr1ga4tllp7an2ra297q95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBalc6QBeoz6tTkTzy30Y92KZeJUFvtqs0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

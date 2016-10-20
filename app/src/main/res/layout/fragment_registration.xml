@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#45a3d1"
+    android:orientation="horizontal"
+    android:padding="15dp">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <EditText
+            android:id="@+id/field_usernameReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorIcons"
+            android:hint="@string/username"
+            android:inputType="textCapSentences"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/field_emailReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorIcons"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/field_passwordReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorIcons"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="10dp" />
+
+
+        <Button
+            android:id="@+id/button_sign_up_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eceef1"
+            android:text="@string/registartion"
+            android:textColor="#45a3d1"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_sign_in_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#0000"
+            android:padding="40dp"
+            android:text="@string/login"
+            android:textColor="@color/registationButtonColor"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

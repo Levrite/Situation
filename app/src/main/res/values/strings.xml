@@ -14,4 +14,13 @@
         "да", "нет", "не имеет значения", "некорректный вопрос". При помощи таких вопросов игроки должны разгадать ситуацию,
         т.е. полностью восстановить происшедшие события и разрешить имеющийся (как правило) в условии парадокс.
 </string>
+    <string name="login">Войти</string>
+    <string name="registartion">Зарегистрироваться</string>
+    <string name="password">Пароль</string>
+    <string name="email">Почта</string>
+    <string name="username">Имя пользователя</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="correct_answer">Правильный ответ</string>
+    <string name="dmatter">Не имеет значения</string>
 </resources>

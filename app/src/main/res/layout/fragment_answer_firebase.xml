@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycleAnswer"
+            android:layout_above="@+id/answer_linear_layout"
+            />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/answer_linear_layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/backround_send_answer"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="24dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical"
+            android:hint="Ваш ответ"
+            android:inputType="textCapSentences|textMultiLine"
+            android:background="#0000"
+            android:textColorHint="#B4B4B4"
+            android:id="@+id/field_question_answer" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_send_24dp"
+            android:id="@+id/button_send_answer"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

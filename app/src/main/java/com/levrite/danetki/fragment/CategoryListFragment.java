@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,13 +40,14 @@ public class CategoryListFragment extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mRecyclerView = (RecyclerView) getView().findViewById(R.id.recycleCategory);
+        mRecyclerView.setHasFixedSize(true);
 
         mDataSource = new DataSource(getActivity());
         mDataSource.open();
         mCategory = mDataSource.getAllCategory();
         mDataSource.close();
 
-        mLayoutManager = new GridLayoutManager(getActivity(), 2);
+        mLayoutManager = new LinearLayoutManager(getActivity());
         mCategoryAdapter = new CategoryAdapter(mCategory, getActivity());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
